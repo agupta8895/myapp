@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, Nav,NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
@@ -48,8 +48,9 @@ export class LoginPage implements OnInit {
     .map((resp:Response)=>resp.json()).subscribe((data)=>{
     	
     	if (data['status']==200){
-    		this.navCtrl.push(HomePage);
-    		// this.data.setRootPage('login');
+        // this.nav.setRoot(HomePage);
+        this.navCtrl.setRoot(HomePage)
+        // this.navCtrl.push(HomePage);
     	}
     	else {
     		this.showAlert();
@@ -58,7 +59,7 @@ export class LoginPage implements OnInit {
   }
   showAlert() {
     let alert = this.alertCtrl.create({
-     title: 'error!',
+     title: 'invaild!',
      
     });
     alert.present();

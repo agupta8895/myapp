@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import {  Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -13,9 +13,8 @@ import { LoginPage } from '../pages/login/login';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -23,7 +22,7 @@ export class MyApp {
      
            
     this.initializeApp();
-    //alert("asdd");
+    
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -40,8 +39,11 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      console.log(this.screenOrientation.type);
+      //console.log(this.screenOrientation.type);
       //this.screenOrientation.lock('landscape');
+      // if(!localStorage.getItem( '' )) {
+      //       this.rootPage = HomePage;
+      //   }
 
 
     });
@@ -53,3 +55,4 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 }
+// ionicBootstrap(MyApp);

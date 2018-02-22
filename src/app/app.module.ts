@@ -11,7 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { DataProvider } from '../providers/data/data';
+//import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { DataProvider } from '../providers/data/data';
     SplashScreen,
     ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
+    
   ]
 })
 export class AppModule {}

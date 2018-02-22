@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({ 
 	selector: 'page-home',
   templateUrl: 'home.html',
 })
- export class HomePage implements OnInit {
+ export class HomePage  {
 	
   constructor(public navCtrl: NavController) {
+  
   	}
 
-	ngOnInit(){
-		this.navCtrl.setRoot(HomePage);
-	}
+	// ngOnInit(){
+	// 	//this.navCtrl.setRoot(HomePage);
+	// }
 }
