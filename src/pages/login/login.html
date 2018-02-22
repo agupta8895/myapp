@@ -1,0 +1,18 @@
+<ion-header>
+<ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-label stacked>Username</ion-label>
+    <ion-input [(ngModel)]="user.username" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Password</ion-label>
+    <ion-input [(ngModel)]="user.password" type="password"></ion-input>
+  </ion-item>
+  <button ion-button (click)="login()">LOGIN</button>
+</ion-list>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-menu side="right" [content]="menu">
+<ion-nav [root]="HomePage"></ion-nav>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <ion-content><button ion-button block menuToggle>Toggle Menu</button>
+      <button ion-item (click)="openPage(dashboard)">DashBoard</button>
+      <button ion-item (click)="openPage(subscribe)">Subscribe</button>
+      <button ion-item (click)="openPage(computer)">computer</button>
+      <button ion-item (click)="openPage(Science)">Science</button>
+      <button ion-item (click)="openPage(Mathematics)">Mathematics</button>
+      <button ion-item (click)="openPage(English)">English</button>
+      <button ion-item (click)="openPage(General-knowledge)">General-knowledge</button>
+      <button ion-item (click)="openPage(Reasoning)">Reasoning</button>
+      
+     </ion-content>
+  </ion-menu>
+
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav content [root]="rootPage" #menu swipeBackEnabled="false"></ion-nav>
