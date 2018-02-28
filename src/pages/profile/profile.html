@@ -1,0 +1,71 @@
+<ion-header>
+<ion-navbar>
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ion-grid>
+  <ion-row>
+    <ion-col col-6>	
+		
+		<h6>
+  			<ion-label><ion-icon name="person"></ion-icon>  Name</ion-label>
+		</h6>
+		<h6>
+  		<u>{{data.userData.user_info.firstname}} {{data.userData.user_info.lastname}}</u>
+    		</h6>
+    	</ion-col>
+    	<ion-col col-6>
+    	<h6>
+			<ion-label><ion-icon name="mail"></ion-icon>   Email</ion-label>
+		</h6>
+		<h6><u>{{data.userData.user_info.email}}</u></h6>
+		</ion-col>
+		<!-- <h1>
+			<ion-label stacked>Country</ion-label>
+		</h1>
+		{{data.userData.user_info.country}} -->
+	<ion-col col-6>
+        <h6>
+			<ion-label><ion-icon name="phone-portrait"></ion-icon>  Mobile</ion-label>
+		</h6>
+		<h6><u>{{data.userData.user_info.mobile}}</u></h6>
+	</ion-col>
+	<!-- 	<h1>
+			<ion-label stacked>Date of Birth</ion-label>
+		</h1>{{data.userData.user_info.birthdate}} -->
+	
+		<!-- <h1>
+			<ion-label stacked>Address</ion-label>
+		</h1>{{data.userData.user_info.address}}
+ --><ion-col col-6>
+		<h6>
+			<ion-label><ion-icon name="man"></ion-icon>  Gender</ion-label>
+		</h6>
+		<h6><u>{{data.userData.user_info.gender}}</u></h6>
+	</ion-col>
+	<ion-col>
+  <button ion-button >Edit</button>
+</ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>
+
+
+
+
+	
+ 
+  
+
+
+    	
+        
+
+	
+	
+	
+		
+	
+
+ 

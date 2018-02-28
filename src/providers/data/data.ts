@@ -1,27 +1,30 @@
 import { Injectable } from '@angular/core';
 import { LoginPage } from '../../pages/login/login';
-import { HomePage } from '../../pages/home/home';
+import { DashBoard } from '../../pages/dashboard/dashboard';
 
-/*
-  Generated class for the DataProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class DataProvider {
-	rootPage = LoginPage
+	rootPage = LoginPage;
+  token;
+  userData;
   constructor() {
-    console.log('Hello DataProvider Provider');
   }
+
+  setToken(sessionToken){
+    this.token = sessionToken;
+    
+  }
+  setUser(message){
+    this.userData = message[0];
+  }
+
 
   setRootPage(root){
   	var newRoot = {
   		'login':LoginPage,
-  		'home':HomePage
+  		'dashboard':DashBoard
   	}
   	this.rootPage = newRoot[root];
-  	console.log(this.rootPage)
   }
 
 }

@@ -4,21 +4,30 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { DashBoard } from '../pages/dashboard/dashboard';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { PopoverPage } from '../pages/popover/popover';
+import { ProfilePage } from '../pages/profile/profile';
+import { LoadoutPage } from '../pages/loadout/loadout';
+import { SubscribePage } from '../pages/subscribe/subscribe';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-//import { DataProvider } from '../providers/data/data';
+import { MasterhttpProvider } from '../providers/masterhttp/masterhttp';
+import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    DashBoard,
     ListPage,
-    LoginPage
+    LoginPage,
+    PopoverPage,
+    ProfilePage,
+    LoadoutPage,
+    SubscribePage
   ],
   imports: [
     HttpModule,
@@ -28,15 +37,22 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    DashBoard,
     ListPage,
-    LoginPage
+    LoginPage,
+    PopoverPage,
+    ProfilePage,
+    LoadoutPage,
+    SubscribePage
   ],
   providers: [
     StatusBar,
+    DataProvider,
     SplashScreen,
     ScreenOrientation,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MasterhttpProvider,
     
   ]
 })

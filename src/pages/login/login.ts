@@ -2,10 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { IonicPage, Nav,NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import { AlertController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { ToastController } from 'ionic-angular';
+import { DashBoard } from '../dashboard/dashboard';
+import { LoadoutPage } from '../loadout/loadout';
 
-// import { DataProvider } from '../../providers/data/data';
+//import { MasterhttpProvider } from '../../providers/masterhttp/masterhttp';
+import { DataProvider } from '../../providers/data/data';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -18,51 +20,53 @@ export class LoginPage implements OnInit {
 	headers;
 	loginResponse;
   constructor(
-  	// public data:DataProvider,
+  	public data:DataProvider,
   	public navCtrl: NavController,
   	public navParams: NavParams,
-  	private http: Http,
-  	public alertCtrl: AlertController
+  	private toastCtrl: ToastController,
+    private http: Http,
+    // public loadout: LoadoutPage
   	) {
   }
-   
-
-  setQueryHeaders(){
+   setQueryHeaders(){
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Olympiadbox-Api-Key', '36fda24fe5588fa4cdf23xxss226c6c2fdfbdb6b6bc7864699774c9jh790f706d05a88');
   }
 
   ngOnInit(){
-	
-  	this.loginUrl = 'http://scripts.olympiadbox.com/services/fronty-api/user/login';
+	 this.loginUrl = 'http://scripts.olympiadbox.com/services/fronty-api/user/login';
   	this.user = {
-  		username:null,
-  		password:null
+  		username:'agupta8895@gmail.com',
+  		password:'akanksha@'
   	}
-  	this.setQueryHeaders();
+
+    this.setQueryHeaders();
   }
 
   login(){
-    this.http.post(this.loginUrl, this.user, {headers:this.headers})
+   this.http.post(this.loginUrl, this.user, {headers:this.headers})
     .map((resp:Response)=>resp.json()).subscribe((data)=>{
-    	
-    	if (data['status']==200){
-        // this.nav.setRoot(HomePage);
-        this.navCtrl.setRoot(HomePage)
-        // this.navCtrl.push(HomePage);
-    	}
-    	else {
-    		this.showAlert();
-    	}
+      	if (data['status']==200){
+          this.data.setToken(data['session_token']);
+          this.navCtrl.push(LoadoutPage);
+           // this.navCtrl.push(DashBoard);
+        
+      	}
+      	else {
+      		this.showToast();
+      	}
     })
+    // })
   }
-  showAlert() {
-    let alert = this.alertCtrl.create({
-     title: 'invaild!',
-     
+  showToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Unauthorized User',
+      duration: 2000,
+      position: 'middle'
     });
-    alert.present();
+
+    toast.present(toast);
   }
   ionViewDidLoad() {
   }
