@@ -15,7 +15,7 @@
                </button>
           </ion-buttons> 
         </ion-col>
-        <ion-col col-1>
+        <ion-col col-1 >
           <ion-buttons start>
             <button ion-button icon-only>
               <ion-icon name="create"></ion-icon>
@@ -29,17 +29,29 @@
 <ion-content>
  <h3> Subject Summary <br>
   <div>
-<button ion-button  (click) ="showRadio()" >Computer</button>
-<button ion-button  (click) ="showRadio()" >Science</button>
-<button ion-button  (click) ="showRadio()" >Mathematics</button>
-<button ion-button  (click) ="showRadio()" >English</button>
-<button ion-button  (click) ="showRadio()" >General-knowledge</button>
-<button ion-button  (click) ="showRadio()" >Reasoning</button>
+     <ion-grid>
+      <ion-row>
+         <ion-col col-4>
+<button ion-button small (click) ="showRadio()" >Computer</button>
+</ion-col>
+<ion-col col-4>
+<button ion-button small (click) ="showRadio()" >Science</button>
+</ion-col>
+<ion-col col-4>
+<button ion-button small (click) ="showRadio()" >Mathematics</button>
+</ion-col>
+<ion-col col-4>
+<button ion-button small (click) ="showRadio()" >English</button>
+</ion-col>
+<ion-col col-4>
+<button ion-button small (click) ="showRadio()" >General-knowledge</button>
+</ion-col>
+<ion-col col-4>
+<button ion-button small (click) ="showRadio()" >Reasoning</button>
+</ion-col>
+</ion-row>
+</ion-grid>
 </div>
 </h3>
-</ion-content>
-
-
-            
-           
+</ion-content>    
  

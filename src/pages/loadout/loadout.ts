@@ -36,8 +36,8 @@ profileUrl:string;
 	   this.http.get(this.profileUrl, {headers:this.headers})
 	   .map((resp:Response)=>resp.json()).subscribe((data)=>{
 	   	if (data['status']==200){
-	    	this.data.setUser(data['message']);
-	    	// this.navCtrl.setRoot(DashBoard)
+	    	this.data.setUser(data['message'][0]);
+	    	this.navCtrl.setRoot(DashBoard)
 		}
 			else {
       		this.showToast();

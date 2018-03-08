@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicStorageModule } from '@ionic/storage';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 
@@ -27,11 +28,12 @@ import { DataProvider } from '../providers/data/data';
     PopoverPage,
     ProfilePage,
     LoadoutPage,
-    SubscribePage
+    SubscribePage,
   ],
   imports: [
     HttpModule,
     BrowserModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -43,7 +45,7 @@ import { DataProvider } from '../providers/data/data';
     PopoverPage,
     ProfilePage,
     LoadoutPage,
-    SubscribePage
+    SubscribePage,
   ],
   providers: [
     StatusBar,

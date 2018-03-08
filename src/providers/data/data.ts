@@ -15,7 +15,8 @@ export class DataProvider {
     
   }
   setUser(message){
-    this.userData = message[0];
+    this.userData = message;
+    console.log(message)
   }
 
 

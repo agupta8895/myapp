@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { IonicPage, Nav,NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import { ToastController } from 'ionic-angular';
 import { DashBoard } from '../dashboard/dashboard';
@@ -25,7 +26,7 @@ export class LoginPage implements OnInit {
   	public navParams: NavParams,
   	private toastCtrl: ToastController,
     private http: Http,
-    // public loadout: LoadoutPage
+    private storage: Storage
   	) {
   }
    setQueryHeaders(){
@@ -47,10 +48,12 @@ export class LoginPage implements OnInit {
   login(){
    this.http.post(this.loginUrl, this.user, {headers:this.headers})
     .map((resp:Response)=>resp.json()).subscribe((data)=>{
+  
       	if (data['status']==200){
           this.data.setToken(data['session_token']);
           this.navCtrl.push(LoadoutPage);
-           // this.navCtrl.push(DashBoard);
+           this.storage.set('session_token',data['session_token']);
+          // this.navCtrl.push(DashBoard);
         
       	}
       	else {

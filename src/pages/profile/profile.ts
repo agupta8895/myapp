@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import { DataProvider } from '../../providers/data/data';
 @IonicPage()
@@ -18,12 +19,18 @@ export class ProfilePage implements OnInit {
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	private toastCtrl: ToastController,
-  	private http: Http
+  	private http: Http,
+    private storage: Storage
   	)  {
   }
    setQueryHeaders(){
         this.headers = new Headers();
-        this.headers.append('session_token', this.data.token);
+        var token;
+        this.storage.get('session_token').then((val) => {
+          console.log('session_token','val');
+          token = val;
+        });
+        this.headers.append('session_token', token);
         this.headers.append('Olympiadbox-Api-Key', '36fda24fe5588fa4cdf23xxss226c6c2fdfbdb6b6bc7864699774c9jh790f706d05a88');
   }
 	ngOnInit(){

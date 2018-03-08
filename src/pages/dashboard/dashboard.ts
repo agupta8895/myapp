@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage,PopoverController,NavController } from 'ionic-angular';
 import { PopoverPage } from '../popover/popover';
 import { AlertController } from 'ionic-angular';
-@IonicPage()
 @Component({ 
 	selector: 'page-dashboard',
   templateUrl: 'dashboard.html',
